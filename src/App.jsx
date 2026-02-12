@@ -35,6 +35,15 @@ function App() {
     }
   ]
 
+  function checkAnswer(option){
+    if(option.isCorrect){
+      console.log("Correct Answer");
+    }
+    else{
+      console.log("Wrong Answer");
+    }
+  }
+
   function onNextClick(){
     if(currQuestion == quizQuestion.length-1) return;
     setCurrQuestion(currQuestion + 1);
@@ -51,7 +60,7 @@ function App() {
           </div>
         </div>
         <div className="answer-section">
-            {quizQuestion[currQuestion].options.map(option => <button>{option.answer}</button>)}
+            {quizQuestion[currQuestion].options.map((option, index) => <button key={index} onClick={() =>checkAnswer(option)}>{option.answer}</button>)}
           </div>
       </div>
       <div>
