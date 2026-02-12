@@ -1,0 +1,32 @@
+body{
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+.app{
+    background-color: #8E8D8A;
+    width: 450px;
+    min-height: 200px;
+    height: min-content;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-evenly;
+}
+.question-section{
+    width: 100%;
+    position: relative;
+}
+
+.question-text{
+    margin-bottom: 12px;
+}
+.question-count > span{
+    font-size: 28px;
+}
+.question-count{
+    margin-bottom: 20px;
+}
