@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import './App.css'
 
 function App() {
 
-  const currQuestion = 0;
+  const [currQuestion, setCurrQuestion] = useState(0);
+
   const quizQuestion = [
     {
       question: 'What is the time complexity of binary search ?',
@@ -33,20 +35,29 @@ function App() {
     }
   ]
 
+  function onNextClick(){
+    if(currQuestion == quizQuestion.length-1) return;
+    setCurrQuestion(currQuestion + 1);
+  }
   return (
-    <div className='app'>
-      <div className="question-section">
-        <div className="question-count">
-          <span>Question {currQuestion + 1}</span> / {quizQuestion.length}
+    <div className="card-wrapper">
+      <div className='app'>
+        <div className="question-section">
+          <div className="question-count">
+            <span>Question {currQuestion + 1}</span> / {quizQuestion.length}
+          </div>
+          <div className="question-text">
+            {quizQuestion[currQuestion].question}
+          </div>
         </div>
-        <div className="question-text">
-          {quizQuestion[0].question}
-        </div>
+        <div className="answer-section">
+            {quizQuestion[currQuestion].options.map(option => <button>{option.answer}</button>)}
+          </div>
       </div>
-      <div className="answer-section">
-          {quizQuestion[0].options.map(option => <button>{option.answer}</button>)}
-        </div>
+      <div>
+        <button onClick={onNextClick}>Next</button>
+      </div>
     </div>
   )
 }
-export default App
+export default App;
