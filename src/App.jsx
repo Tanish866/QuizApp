@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css'
 import AnswerSection from './components/AnswerSection';
 import Geolocation from './components/Geolocation/Geolocation';
+import GeolocationContainer from './components/Geolocation/GeolocationContainer';
 
 function App() {
 
@@ -50,9 +51,12 @@ function App() {
     if(currQuestion == quizQuestion.length-1) return;
     setCurrQuestion(currQuestion + 1);
   }
+
+  const NewUiGeolocation = GeolocationContainer(Geolocation);
+
   return (
     <div className="card-wrapper">
-      <Geolocation latitude={12} longitude={23}/>
+      <NewUiGeolocation/>
       <div className='app'>
         <div className="question-section">
           <div className="question-count">
