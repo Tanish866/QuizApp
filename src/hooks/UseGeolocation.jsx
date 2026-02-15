@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import Geolocation from "./Geolocation";
 
-function GeolocationContainer(){
+export default function UseGeolocation(){
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
     function handleLocationSettings(coordinates){
@@ -14,9 +13,6 @@ function GeolocationContainer(){
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(handleLocationSettings);
         }
-    }, [navigator])
-    return(
-        <Geolocation latitude={latitude} longitude={longitude}/>
-    );
+    }, [navigator]);
+    return [latitude, longitude];
 }
-export default GeolocationContainer;

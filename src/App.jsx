@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './App.css'
 import AnswerSection from './components/AnswerSection';
 import Geolocation from './components/Geolocation/Geolocation';
-import GeolocationContainer from './components/Geolocation/GeolocatioContainer';
 
 function App() {
 
@@ -53,7 +52,7 @@ function App() {
   }
   return (
     <div className="card-wrapper">
-      <GeolocationContainer/>
+      <Geolocation latitude={12} longitude={23}/>
       <div className='app'>
         <div className="question-section">
           <div className="question-count">
